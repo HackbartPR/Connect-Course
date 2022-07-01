@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define INCREASE 1.15
-#define TAXES 0.92
+#define SUBT_TAXES 0.92
 
 int main(){
 
@@ -9,7 +9,7 @@ int main(){
     printf("DIGITE O SALARIO ATUAL: ");
     scanf("%f", &currentSalary);
 
-    float newSalary = (currentSalary * INCREASE) * TAXES;
+    float newSalary = (currentSalary * INCREASE) * SUBT_TAXES;
     printf("\nSEU NOVO SALARIO E DE R$ %.2f\n\n", newSalary);
 
     return 0;
