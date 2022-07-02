@@ -18,7 +18,7 @@ int main() {
     printf("TERCEIRA NOTA: ");
     scanf("%d", &thirdGrade);
 
-    float average = (firstGrade * FIRST_WEIGHT + secondGrade * SECOND_WEIGHT + thirdGrade * THIRD_WEIGHT) / (firstGrade + secondGrade + thirdGrade);
+    float average = (firstGrade * FIRST_WEIGHT + secondGrade * SECOND_WEIGHT + thirdGrade * THIRD_WEIGHT) / (FIRST_WEIGHT + SECOND_WEIGHT + THIRD_WEIGHT);
     printf("MEDIA PONDERADA: %.2f", average);
 
     return 0;

@@ -5,7 +5,7 @@
 int main() {
     char name[50];
     printf("DIGITE SEU NOME: ");
-    scanf("%s", &name);
+    scanf("%s", name);
 
     int age = 0;
     printf("DIGITE SUA IDADE: ");
