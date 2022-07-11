@@ -39,7 +39,7 @@ double potencia (int base, int potencia) {
 }
 
 double quadrado (int num){
-    //O quadrado de um numero n natural é dado pela somas do numeros n impares
+    //O quadrado de um numero n natural Ã© dado pela somas do numeros n impares
     double result = 0;
     int count = 0;
     int quantImpar = num;
@@ -70,6 +70,25 @@ float raizQuadrada(float num){
 
         if(precisao > 0.001)
             result = (raiz + num) / (2 * result);
+
+    }while(precisao > 0.001);
+
+    return result;
+}
+
+float raizCubica(float num){
+    float result = 1;
+    float precisao = 0;
+
+    do{
+        float raiz = result * result * result;
+        precisao = raiz - num;
+
+        if(precisao < 0)
+            precisao *= -1;
+
+        if(precisao > 0.001)
+            result = result - (raiz - num) / (3 * (result * result));
 
     }while(precisao > 0.001);
 
