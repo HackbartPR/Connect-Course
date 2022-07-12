@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1657625057 source:d:\programação\connect\algoritmos e estruturas de dados\estudos\numeros_aleatorios\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
