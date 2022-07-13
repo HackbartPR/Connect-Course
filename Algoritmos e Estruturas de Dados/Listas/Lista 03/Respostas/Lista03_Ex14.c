@@ -9,12 +9,12 @@ int main(){
         system("cls");
         printf("OLA MUNDO\n");
 
-        printf("DESEJA VISUALIZAR ESTA MENSAGEM NOVAMENTE?\n");
+        printf("DESEJA SAIR DA APLICACAO?\n");
         printf("DIGITE 1 PARA SIM\n");
         printf("DIGITE 2 PARA NAO\n");
         scanf("%d", &choice);
 
-    }while(choice == 1);
+    }while(choice == 2);
 
     return 0;
 }
