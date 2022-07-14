@@ -12,7 +12,7 @@ int main(){
     int audience_13 = 0;
 
     for(int i = 1; i <= amountHouses; i++){
-        printf("PARA A %d%c CASA, QUAL O CANAL MAIS ASSISTIDO?\n", i,166);
+        printf("\nPARA A %d%c CASA, QUAL O CANAL MAIS ASSISTIDO?\n", i,166);
         printf("DIGITE 3 PARA O CANAL 3\n");
         printf("DIGITE 5 PARA O CANAL 5\n");
         printf("DIGITE 11 PARA O CANAL 11\n");
@@ -51,7 +51,10 @@ int main(){
     float porc_channel_11 = (100 * audience_11) / totalAudience;
     float porc_channel_13 = (100 * audience_13) / totalAudience;
 
-
+    printf("\nCANAL 03: %.2f%%", porc_channel_3);
+    printf("\nCANAL 05: %.2f%%", porc_channel_5);
+    printf("\nCANAL 11: %.2f%%", porc_channel_11);
+    printf("\nCANAL 13: %.2f%%", porc_channel_13);
 
     return 0;
 }
