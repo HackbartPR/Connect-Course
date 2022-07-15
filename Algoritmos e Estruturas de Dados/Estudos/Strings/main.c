@@ -5,14 +5,15 @@ int strlen(char s[]);
 void strcpy(char newString[], char baseString[]);
 void strupr(char newString[], char baseString[]);
 void strcat(char newString[], char baseString[]);
+int strpos(char string[], char caracter);
 
 int main()
 {
-    char name[] = "Facil";
-    char lastName[] = "Mente";
-    char newName[50];
+    //char name[] = "Facil";
+    //char lastName[] = "Mente";
+    //char newName[50];
 
-    printf("Lenght: %d\n", strlen(name));
+    //printf("Lenght: %d\n", strlen(name));
 
     //strcpy(newName, name);
     //printf("Nova String: %s", newName);
@@ -20,8 +21,11 @@ int main()
     //strupr(newName, name);
     //printf("Maiuscula String: %s", newName);
 
-    strcat(name, lastName);
-    printf("Concatenacao String: %s", name);
+    //strcat(name, lastName);
+    //printf("Concatenacao String: %s", name);
+
+    char name[] = "garlos cuilherme";
+    printf("%d", strpos(name, 'c'));
 
     return 0;
 }
@@ -65,3 +69,14 @@ void strcat(char newString[], char baseString[]){
     for(int i = newLength; i <= baseLength; i++)
         newString[i] = baseString[i - newLength];
 }
+
+int strpos(char string[], char caracter){
+    int lenght = strlen(string);
+    int position = -1;
+
+    for(int i=0; i <= lenght; i++)
+        if(string[i] == caracter) position = i;
+
+    return position;
+}
+
