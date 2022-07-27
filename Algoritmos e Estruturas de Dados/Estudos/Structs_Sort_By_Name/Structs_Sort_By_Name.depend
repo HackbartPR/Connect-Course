@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1658928029 source:d:\programação\connect\algoritmos e estruturas de dados\estudos\structs_sort_by_name\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
