@@ -82,8 +82,94 @@ CREATE TABLE partido (
  	candidato_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     numero_candidato INT UNIQUE NOT NULL,
     nome VARCHAR(40) UNIQUE NOT NULL,
-    
+    fk_cargo SMALLINT UNSIGNED,
+    CONSTRAINT cargo_candidato FOREIGN KEY (fk_cargo) REFERENCES cargo (cargo_id)
  );
+ 
+ CREATE TABLE eleitor (
+	eleitor_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    titulo_eleitor VARCHAR(30) UNIQUE NOT NULL,
+    zona_eleitoral CHAR(5) NOT NULL,
+    sessao_eleitoral CHAR(5) NOT NULL,
+    nome VARCHAR(40) NOT NULL
+ );
+
+ CREATE TABLE voto (
+	voto_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    fk_numero_candidato INT NOT NULL,
+    fk_titulo_eleitor VARCHAR(30) UNIQUE NOT NULL,
+    CONSTRAINT candidato_voto FOREIGN KEY (fk_numero_candidato) REFERENCES candidato (numero_candidato),
+    CONSTRAINT eleitor_voto FOREIGN KEY (fk_titulo_eleitor) REFERENCES eleitor (titulo_eleitor)
+ );
+ 
+ ALTER TABLE candidato ADD fk_partido SMALLINT UNSIGNED;
+ 
+ ALTER TABLE candidato ADD CONSTRAINT candidato_partido FOREIGN KEY (fk_partido) REFERENCES partido (partido_id);
+ 
+-- ---------------------- EXERCICIO 03 ----------------------
+ 
+ CREATE DATABASE revendedora_carros;
+ 
+ USE revendedora_carros;
+ 
+ CREATE TABLE automovel (
+    renavam VARCHAR(11) PRIMARY KEY,
+    placa VARCHAR(10) UNIQUE NOT NULL,
+    marca VARCHAR(50) NOT NULL,
+    modelo VARCHAR(50) NOT NULL,
+    ano_fabricacao YEAR NOT NULL,
+    cor VARCHAR(20) NOT NULL,
+    motor VARCHAR(50) NOT NULL,
+    numero_portas TINYINT NOT NULL,
+    tipo_combustivel VARCHAR(10) NOT NULL,
+    preco FLOAT NOT NULL
+ );
+ 
+ CREATE TABLE clientes (
+	clientes_id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL,
+    telefone VARCHAR(11) NOT NULL UNIQUE,
+    ender_rua VARCHAR(50) NOT NULL,
+    ender_numero INT UNSIGNED NOT NULL,
+    ender_complemento VARCHAR(50),
+    ender_bairro VARCHAR(50) NOT NULL,
+    ender_cidade VARCHAR(50) NOT NULL,
+    ender_estado CHAR(2) NOT NULL,
+    cep VARCHAR(8)
+ );
+ 
+ CREATE TABLE vendedores (
+	vendedor_id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL,
+    telefone VARCHAR(11) NOT NULL UNIQUE,
+    ender_rua VARCHAR(50) NOT NULL,
+    ender_numero INT UNSIGNED NOT NULL,
+    ender_complemento VARCHAR(50),
+    ender_bairro VARCHAR(50) NOT NULL,
+    ender_cidade VARCHAR(50) NOT NULL,
+    ender_estado CHAR(2) NOT NULL,
+    cep VARCHAR(8),
+    data_admisao DATE NOT NULL,
+    salario INT UNSIGNED NOT NULL
+ );
+ 
+ CREATE TABLE venda (
+	venda_id INT PRIMARY KEY AUTO_INCREMENT,
+    fk_vendedor INT NOT NULL,
+    fk_automovel VARCHAR(11) NOT NULL,
+    fk_cliente INT NOT NULL,
+    data_compra DATE NOT NULL,
+    preco FLOAT NOT NULL,
+    CONSTRAINT venda_vendedor FOREIGN KEY (fk_vendedor) REFERENCES vendedores (vendedor_id),
+    CONSTRAINT venda_automovel FOREIGN KEY (fk_automovel) REFERENCES automovel (renavam),
+    CONSTRAINT venda_cliente FOREIGN KEY (fk_cliente) REFERENCES clientes (clientes_id)
+ );
+ 
+ 
+ 
+ 
 
 
 
