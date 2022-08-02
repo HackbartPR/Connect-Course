@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 int strlen(char s[]);
-void strcpy(char newString[], char baseString[]);
+void strcpy(char *newString, char *baseString);
 void strupr(char newString[], char baseString[]);
-void strcat(char newString[], char baseString[]);
+void strcat(char *resultString, char *firsString, char *secondString);
 int strpos(char string[], char caracter);
 
 int main()
@@ -30,15 +30,15 @@ int main()
     return 0;
 }
 
-void strcpy(char newString[], char baseString[]){
+void strcpy(char *newString, char *baseString){
     int length = strlen(baseString);
 
-    for(int i=0; i <= length + 1; i++){
+    for(int i=0; i <= length; i++){
         newString[i] = baseString[i];
     }
 }
 
-int strlen(char s[]){
+int strlen(char *s){
     int length = 0;
     int i = 0;
 
@@ -47,6 +47,7 @@ int strlen(char s[]){
         i++;
     }
 
+    length++; //PARA ADICIONAR O ESPAÇO DO /0
     return length;
 }
 
@@ -60,14 +61,16 @@ void strupr(char newString[], char baseString[]){
     }
 }
 
-void strcat(char newString[], char baseString[]){
-    int newLength = strlen(newString);
-    int baseLength = newLength + strlen(baseString);
+void strcat(char *resultString, char *firsString, char *secondString){
+    int startLength = strlen(firsString);
+    int baseLength = (startLength + strlen(secondString))-1; //RETIRANDO O /0 DE UMA STRING
 
-    printf("%d %d", newLength, baseLength);
+    //RESULTSTRING REFEBE TODO O CONTEUDO DA PRIMEIRA STRING
+    strcpy(resultString, firsString);
 
-    for(int i = newLength; i <= baseLength; i++)
-        newString[i] = baseString[i - newLength];
+    for(int i = startLength -1; i < baseLength; i++){
+        resultString[i] = secondString[i - (startLength-1)];
+    }
 }
 
 int strpos(char string[], char caracter){
