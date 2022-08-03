@@ -8,8 +8,9 @@ void verifyEndPoint(char *str);
 void strupr(char newString[], char baseString[]);
 int countVogals(char *str);
 int countWords(char *text);
+int findWord(char *text, char *word);
 
-#define _TAM 20
+#define _TAM 21
 
 int main()
 {
@@ -43,8 +44,15 @@ int main()
     printf("DIGITE UM TEXTO COM O MAXIMO DE 300 CARACTERES: ");
     gets(text);
 
-    int amountWords = countWords(text);
-    printf("QUANTIDADE DE PALAVRAS: %d\n\n", amountWords);
+    //int amountWords = countWords(text);
+    //printf("QUANTIDADE DE PALAVRAS: %d\n\n", amountWords);
+
+    char wordToFind[300];
+    printf("QUAL PALAVRA DESEJA ENCONTRAR: ");
+    gets(wordToFind);
+
+    int indexWord = findWord(text, wordToFind);
+    printf("INDICE DA PALAVRA ENCONTRADA: %d\n\n", indexWord);
 
     return 0;
 }
@@ -110,6 +118,8 @@ void strupr(char newString[], char baseString[]){
     for(int i=0; i<=length +1; i++){
         if(baseString[i] >= 97 && baseString[i] <= 122) newString[i] = baseString[i] - 32;
         else if(baseString[i] == ' ') newString[i] = baseString[i];
+        else if(baseString[i] == '\0') newString[i] = baseString[i];
+        else if(baseString[i] == '\n') newString[i] = baseString[i];
         else if(baseString[i] >= 65 && baseString[i] <= 90) newString[i] = baseString[i];
     }
 }
@@ -123,10 +133,50 @@ int countWords(char *text){
         lastCaracter = text[i-1];
 
         if(lastCaracter != ' ' && lastCaracter != ',' && lastCaracter != '.' && lastCaracter != '!' && lastCaracter != '?' && lastCaracter != ';'){
+
             if(text[i] == ' ' || text[i] == ',' || text[i] == '.' || text[i] == '!' || text[i] == '?' || text[i] == ';' || text[i] == '\0')
                 count++;
         }
     }
 
     return count;
+}
+
+int findWord(char *text, char *word){
+    //ENCONTRA O TAMANHO DAS STRINGS
+    int lengthText = strlen(text);
+    int lengthWord = strlen(word);
+
+    //CRIA NOVAS STRINGS
+    char newText[lengthText];
+    char newWord[lengthWord];
+
+    //TRANSFORMA AS NOVAS STRINGS PARA MAIUSCULA
+    strupr(newText, text);
+    strupr(newWord, word);
+
+    int result = -1;
+    int countComplete = 0;
+
+    //PERCORRE O VETOR
+    for(int i=0; i < lengthText; i++){
+
+        if(newText[i] == newWord[0]){
+            int countText = i+1;
+            int countWord = 1;
+
+            countComplete++;
+
+            while(newText[countText] == newWord[countWord]){
+                countComplete++;
+                countText++;
+                countWord++;
+            }
+
+            if(countComplete >= lengthWord-1) result = i;
+
+        }
+    }
+
+    return result;
 }
