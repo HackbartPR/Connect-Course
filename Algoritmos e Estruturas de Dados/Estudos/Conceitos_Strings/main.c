@@ -9,15 +9,16 @@ void strupr(char newString[], char baseString[]);
 int countVogals(char *str);
 int countWords(char *text);
 int findWord(char *text, char *word);
+void findCountWords(char *text);
 
 #define _TAM 21
 
 int main()
 {
-    char firstName[_TAM];
-    char lastName[_TAM];
-    char catName[2 * _TAM];
-    char nameUPR[_TAM];
+    //char firstName[_TAM];
+    //char lastName[_TAM];
+    //char catName[2 * _TAM];
+    //char nameUPR[_TAM];
 
     //LEITURA DE DADOS
     //printf("DIGITE A PRIMEIRA STRING: ");
@@ -40,19 +41,20 @@ int main()
     //int numberVogals = countVogals(firstName);
     //printf("QUANTIDADE VOGAIS: %d\n\n", numberVogals);
 
-    char text[300];
-    printf("DIGITE UM TEXTO COM O MAXIMO DE 300 CARACTERES: ");
-    gets(text);
+    //char text[300];
+    //printf("DIGITE UM TEXTO COM O MAXIMO DE 300 CARACTERES: ");
+    //gets(text);
 
     //int amountWords = countWords(text);
     //printf("QUANTIDADE DE PALAVRAS: %d\n\n", amountWords);
 
-    char wordToFind[300];
-    printf("QUAL PALAVRA DESEJA ENCONTRAR: ");
-    gets(wordToFind);
+    //char wordToFind[300];
+    //printf("QUAL PALAVRA DESEJA ENCONTRAR: ");
+    //gets(wordToFind);
 
-    int indexWord = findWord(text, wordToFind);
-    printf("INDICE DA PALAVRA ENCONTRADA: %d\n\n", indexWord);
+    //int indexWord = findWord(text, wordToFind);
+    //printf("INDICE DA PALAVRA ENCONTRADA: %d\n\n", indexWord);
+
 
     return 0;
 }
@@ -161,18 +163,21 @@ int findWord(char *text, char *word){
     //PERCORRE O VETOR
     for(int i=0; i < lengthText; i++){
 
+        //A PRIMEIRA LETRA DA PALAVRA NO TEXTO
         if(newText[i] == newWord[0]){
             int countText = i+1;
             int countWord = 1;
 
             countComplete++;
 
+            //A PARTIR DA PRIMEIRA PALAVRA ENCONTRADA, PERCORRER AS LETRAS SEGUINTES
             while(newText[countText] == newWord[countWord]){
                 countComplete++;
                 countText++;
                 countWord++;
             }
 
+            //SE A QUANTIDADE DE PALAVRAS IGUAIS FORAM IGUAL OU MAIOR QUE O TAMANHO DA PALAVRA SOLICITADA
             if(countComplete >= lengthWord-1) result = i;
 
         }
@@ -180,3 +185,4 @@ int findWord(char *text, char *word){
 
     return result;
 }
+
