@@ -54,3 +54,27 @@ INSERT INTO professores_turma (fk_professor, fk_turma, data_inicio) VALUES (1, 1
 INSERT INTO professores_turma (fk_professor, fk_turma, data_inicio) VALUES (2, 2, '2022-08-01 09:00:00');
 
 
+UPDATE professores SET nome = 'Carlos Guilherme Hackbart' WHERE professor_id = 1;
+
+UPDATE turma SET nome = '6º Seria A' WHERE turma_id = 1;
+
+UPDATE aulas SET nome = 'Física' WHERE aula_id = 1;
+
+UPDATE alunos SET nome = 'Luana Hackbart' WHERE alunos_id = 1;
+
+UPDATE professores_turma SET data_inicio = '2022-08-01 08:00:00' WHERE id = 1;
+
+DELETE FROM professores_turma WHERE id = 2;
+
+DELETE FROM aulas WHERE aula_id = 2;
+
+DELETE FROM professores WHERE professor_id = 2;
+
+DELETE FROM alunos WHERE alunos_id = 2;
+
+DELETE FROM turma WHERE turma_id = 2;
+
+
+
+
+
