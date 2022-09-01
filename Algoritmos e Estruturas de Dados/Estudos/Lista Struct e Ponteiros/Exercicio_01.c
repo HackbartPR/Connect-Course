@@ -4,7 +4,7 @@
 
 typedef struct {
     char nome[80];
-    int preco;
+    double preco;
     int quant;
 } PRODUTO;
 
@@ -24,9 +24,13 @@ int main(){
     preencherCompra(compra, TAM);
 
     //ORDENAR COMPRA POR PRECO
+    printf("\nORDENACAO POR PRECO: \n");
     ordenarPorPreco(compra, TAM);
+    imprimirCompra(compra, TAM);
 
-    //IMPRIMIR COMPRA
+    //ORDENAR COMPRA POR QUANTIDADE
+    printf("\nORDENACAO POR QUANTIDADE: \n");
+    ordenarPorQuantidade(compra, TAM);
     imprimirCompra(compra, TAM);
 
     return 0;
@@ -46,7 +50,7 @@ void preencherCompra(PRODUTO *compra, int TAM){
         gets(compra[i].nome);
 
         printf("PRECO: ");
-        scanf("%d", &compra[i].preco);
+        scanf("%lf", &compra[i].preco);
 
         printf("QUANTIDADE: ");
         scanf("%d", &compra[i].quant);
@@ -78,6 +82,28 @@ void ordenarPorPreco(PRODUTO *compra, int TAM){
     }
 }
 
+void ordenarPorQuantidade(PRODUTO *compra, int TAM){
+    int index = 1;
+
+    while(index < TAM){
+        PRODUTO menor = compra[index-1];
+        int posicao = index-1;
+
+        for(int i = index; i < TAM; i++){
+            if(compra[i].quant < menor.quant){
+                menor = compra[i];
+                posicao = i;
+            }
+        }
+
+        PRODUTO aux = compra[index - 1];
+        compra[index -1] = menor;
+        compra[posicao] = aux;
+
+        index++;
+    }
+}
+
 void imprimirCompra(PRODUTO *compra, int TAM){
 
     printf("\n");
@@ -87,7 +113,7 @@ void imprimirCompra(PRODUTO *compra, int TAM){
 
         printf("NOME: %s\n", compra[i].nome);
 
-        printf("PRECO: %d\n", compra[i].preco);
+        printf("PRECO: %.2lf\n", compra[i].preco);
 
         printf("QUANTIDADE: %d", compra[i].quant);
 
