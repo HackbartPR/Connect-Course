@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1662486452 source:c:\users\alunos\desktop\carlos\algoritmos e estruturas de dados\estudos\lista arquivos\exercicio_03\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
