@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1663016226 source:c:\users\alunos\desktop\carlos\algoritmos e estruturas de dados\estudos\lista arquivos\fila\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1663090900 source:c:\users\alunos\desktop\carlos\algoritmos e estruturas de dados\estudos\fila\lista_arranjo.c
+	"lista_arranjo.h"
+	<stdio.h>
+
+1663090245 c:\users\alunos\desktop\carlos\algoritmos e estruturas de dados\estudos\fila\lista_arranjo.h
+
+1663090663 source:c:\users\alunos\desktop\carlos\algoritmos e estruturas de dados\estudos\fila\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lista_arranjo.h"
+
