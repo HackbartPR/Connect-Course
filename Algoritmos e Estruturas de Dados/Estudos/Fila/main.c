@@ -6,7 +6,8 @@
 #define TAM 100
 
 int main(){
-    ARRANGEMENT fila;
+    //ARRANGEMENT fila;
+    LIST list;
 
     ELEMENT elemento_01;
     elemento_01.key = 1;
@@ -14,8 +15,55 @@ int main(){
 
     ELEMENT elemento_02;
     elemento_02.key = 2;
-    strcpy(elemento_02.desc, "Brunin do TK");
+    strcpy(elemento_02.desc, "Bruno");
 
+    startList(&list);
+
+    int isSaved = insertByPositionListDinamic(&list, elemento_01, 0);
+    if(!isSaved){
+        printf("ERRO AO INSERIR USUARIO\n");
+        return 0;
+    }
+
+    isSaved = insertByPositionListDinamic(&list, elemento_02, 1);
+    if(!isSaved){
+        printf("ERRO AO INSERIR USUARIO\n");
+        return 0;
+    }
+
+    printListDinamic(&list);
+
+    mallocList(&list);
+
+    printf("***************************\n");
+
+    ELEMENT elemento_03;
+    elemento_03.key = 3;
+    strcpy(elemento_03.desc, "Andre");
+
+    ELEMENT elemento_04;
+    elemento_04.key = 4;
+    strcpy(elemento_04.desc, "Will");
+
+    isSaved = insertByPositionListDinamic(&list, elemento_03, 2);
+    if(!isSaved){
+        printf("ERRO AO INSERIR USUARIO\n");
+        return 0;
+    }
+
+    isSaved = insertByPositionListDinamic(&list, elemento_04, 3);
+    if(!isSaved){
+        printf("ERRO AO INSERIR USUARIO\n");
+        return 0;
+    }
+
+    printListDinamic(&list);
+
+    deleteList(&list);
+
+
+
+    /*
     start(&fila);
 
     if(!insertByPosition(&fila, elemento_01, 0)){
@@ -71,6 +119,8 @@ int main(){
     printf("Key 1:\n");
     printf("Index: %d\n", index);
     printf("******************\n");
+
+    */
 
     return 0;
 }
