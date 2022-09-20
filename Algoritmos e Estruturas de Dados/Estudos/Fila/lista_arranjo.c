@@ -66,8 +66,9 @@ int insertByPosition(ARRANGEMENT *p, ELEMENT el, int pos){
 
 //INSERE UM ELEMENTO NA LISTA DINAMICA
 int insertByPositionListDinamic(LIST *p, ELEMENT el, int pos){
+    if(pos > p->length) return 0;
 
-    if(p->length == p->max_size || pos > p->length) return 0;
+    if(p->length == p->max_size) mallocList(p);
 
     for(int i = p->length; i > pos; i--)
         p->elements[i] = p->elements[i-1];
