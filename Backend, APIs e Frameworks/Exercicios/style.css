@@ -18,8 +18,8 @@
 .wrapper{
     border: 1px solid gray;
     border-radius: 10px;
-
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
     display: flex;
     justify-content: center;
@@ -32,8 +32,16 @@
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
 
     transform-style: preserve-3d;
-    width: 283.6px;
-    height: 235.2px;
+}
+
+.wrapper-nome{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    margin: 0 1rem;
 }
 
 .wrapper-peso{
@@ -42,6 +50,8 @@
     align-items: flex-start;
 
     flex-direction: column;
+
+    margin: 0 1rem;
 }
 
 .wrapper-altura{
@@ -50,6 +60,8 @@
     align-items: flex-start;
 
     flex-direction: column;
+
+    margin: 0 1rem;
 }
 
 .wrapper-result{
@@ -58,6 +70,81 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin: 0 1rem;
+}
+
+.wrapper-button{
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+   padding: 0 1rem;
+}
+
+.wrapper-users{
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    padding: 1rem;
+
+    background-color: crimson;
+
+    cursor: pointer;
+    color: white;
+}
+
+.wrapper-reg{
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.wrapper-reg{
+    position: relative;
+    width: 100%;
+
+    padding: 0 1rem;
+
+    display: block;
+    background-color: crimson;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+}
+
+.wrapper-reg-data{
+    position: relative;
+    width: 100%;
+
+    padding: 0 1rem;
+
+    display: block;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    color: black;
+    
 }
 
 input{
@@ -68,6 +155,16 @@ input{
     width: 250px;
 }
 
-button{
+button {
     padding: 6px 10px;
+}
+
+#reiniciar{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#reiniciar.show{
+    opacity: 1;
+    cursor: pointer;
 }
