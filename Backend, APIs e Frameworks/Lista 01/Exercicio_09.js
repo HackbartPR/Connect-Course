@@ -1,0 +1,9 @@
+const PORCENT_WATER_NEEDED = 0.8
+const PORCENT_JUICE_NEEDED = 0.2
+
+let liters = prompt("DIGITE A QUANTIDADE DE LITROS DE REFRESCO DESEJADA: ");
+
+let waterLitersUsed = liters * PORCENT_WATER_NEEDED;
+let juiceLitersUSed = liters * PORCENT_JUICE_NEEDED;
+
+alert(`PARA PRODUZIR ${liters} LITROS DE REFRESCO, SERA NECESSARIO ${waterLitersUsed} LITROS DE AGUA E ${juiceLitersUSed} LITROS DE SUCO DE MARACUJA`);
