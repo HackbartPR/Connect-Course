@@ -17,8 +17,11 @@ public class Primeiro_Projeto {
         Pessoa person = new Pessoa();
         
         person.setName("Carlos");
-        
         System.out.println(person.getName());
+        
+        person.setEndereco("Marechal Dutra", 40);
+        System.out.println(person.getEndereco());
+        
     }
     
 }
