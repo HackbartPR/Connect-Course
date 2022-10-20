@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+    <script src="./script.js"></script>
+    <style>
+        .flex{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .center{
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="flex">
+    <header>
+        <h1 class="center">Exercício 04</h1>
+        <p>Crie um input do tipo texto que possua o placeholder “digite seu cpf”.</p>
+        <p>Crie uma função que verifique se o cpf informado possui exatamente 11 digitos.</p>
+        <p>Crie alertas para quando o cpf estiver errado.</p>
+        <p>Escreva o tipo do erro em um <p> abaixo da caixa de texto</p>
+        <p>Se estiver correto, crie uma caixa de confirmação.
+            Se clicar em OK, Exiba o texto “CPF Válido”
+            Se clicar em cancelar, exiba o texto: “operação cancelada”.</p>
+    </header>
+    <main>
+            <input id="input" type="text" placeholder="Digite seu CPF"/>
+            <button id="btn">Enviar</button>
+            <p id="text"></p>
+        </div>
+    </main>
+</body>
